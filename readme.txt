@@ -1,0 +1,38 @@
+=== Church Social ===
+Contributors: reinink
+Tags: sermons, calendar, events, church
+Requires at least: 4.0
+Tested up to: 4.4
+Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+This plugin allows churches to display content from their Church Social account on their WordPress website.
+
+== Description ==
+
+This plugin allows churches to display content from their [Church Social](http://churchsocialapp.com) account on their WordPress website. For example, events from the calendar or the sermon archive. Note, you must be a Church Social customer to use this plugin, as it requires an API key. This plugin can be used with both the Church Social provided WordPress themes, as well as any other theme.
+
+== Installation ==
+
+- Upload the plugin into a `church-social` folder in the `/wp-content/plugins` directory.
+- Activate plugin in the WordPress admin.
+- In the WordPress admin, go to Settings, then Church Social, and enter your Church Social API key.
+- To enable the calendar or sermon archive, simply select the pages you want them to appear on.
+- You can also optionally set a theme, which is helpful if you're not using one of the Church Social provided WordPress themes.
+
+== Frequently Asked Questions ==
+
+= What is Church Social? =
+
+[Church Social](http://churchsocialapp.com) is an online app built specifically for Reformed churches. It allows church administrators to manage member information securely and with ease. It also provides members access to a private area online where they can use helpful features like a member directory, sermon archive, scheduling tools, group emailer, sermon archive, and more.
+
+= Why do I need to be a Church Social customer to use this plugin? =
+
+The purpose of this plugin is to show content from within a customer's Church Social account on their WordPress website. Without an account there would be no data to display. If you want to learn more about Church Social, please visit <a href="http://churchsocialapp.com">churchsocialapp.com</a>.
+
+== Changelog ==
+
+= 1.0.0 =
+
+* First public release.

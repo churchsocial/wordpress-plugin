@@ -1,0 +1,67 @@
+.church_social_calendar {
+    &__title {}
+
+    &__controls {
+        margin: 15px 0;
+    }
+
+    &__controls_link {
+        margin: 0 10px;
+    }
+
+    &__table {
+        width: 100%;
+    }
+
+    &__day {
+        padding: 8px 8px 4px 8px;
+        width: 14.2857%;
+        vertical-align: top;
+    }
+
+    &__day--blank {}
+
+    &__day--today {
+        background: rgba(black, 0.05);
+    }
+
+    &__day_wrap {
+        min-height: 100px;
+    }
+
+    &__day_number {
+        display: block;
+        font-size: 12px;
+        text-align: right;
+    }
+
+    &__event {
+        margin: 8px 0;
+        font-size: 13px;
+        line-height: 1.2;
+    }
+
+    &__event_link {}
+
+    &__event_title {}
+
+    &__event_sub_title {}
+
+    &__event_sub_title--date {}
+
+    &__event_details {}
+
+    &__event_details--date {}
+
+    &__event_sub_title--location {}
+
+    &__event_details--location {}
+
+    &__event_sub_title--description {}
+
+    &__event_details--description {}
+
+    &__event_buttons {}
+
+    &__event_back_button {}
+}

@@ -1,0 +1,12 @@
+@import "calendar";
+@import "sermon_archive";
+
+.church_social_calendar {
+    &__table,
+    &__day {
+        border: solid 1px darken(white, 70%);
+    }
+}
+
+.church_social_sermon_archive {
+}
