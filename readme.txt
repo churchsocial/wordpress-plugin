@@ -13,7 +13,7 @@ This plugin allows churches to display content from their Church Social account 
 
 This plugin allows churches to display content from their [Church Social](http://churchsocialapp.com) account on their WordPress website. For example, it will display public events from the calendar as well as public sermons from the sermon archive. This is a great way to keep this content up-to-date on your church's public-facing website.
 
-Note, you must be a Church Social customer to use this plugin, as it requires an API key. This plugin can be used with both the Church Social provided WordPress themes, as well as any other theme. To become a customer, or to simply learn more about Church Social, please visit our website at <a href="http://churchsocialapp.com">churchsocialapp.com</a>.
+Note, you must be a Church Social customer to use this plugin, as it requires an API key. This plugin can be used with both the Church Social provided WordPress themes, as well as any other theme. To become a customer, or to simply learn more about Church Social, please visit our website at [churchsocialapp.com](http://churchsocialapp.com).
 
 == Installation ==
 
