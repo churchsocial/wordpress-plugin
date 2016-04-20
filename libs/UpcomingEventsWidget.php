@@ -60,7 +60,7 @@ class UpcomingEventsWidget extends WP_Widget
     {
         $calendar_page_url = $this->page_id ? get_permalink($this->page_id) : null;
 
-        $response = wp_remote_get('https://churchsocialapp.com/api/events/upcoming?limit='.$instance['number_of_events'], [
+        $response = wp_remote_get('https://app.churchsocial.com/api/events/upcoming?limit='.$instance['number_of_events'], [
             'headers' => [
                 'Authorization' => $this->api_key,
             ],

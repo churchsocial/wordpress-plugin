@@ -2,7 +2,7 @@
 Contributors: reinink
 Tags: sermons, calendar, events, church
 Requires at least: 4.0
-Tested up to: 4.4
+Tested up to: 4.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -11,9 +11,9 @@ This plugin allows churches to display content from their Church Social account 
 
 == Description ==
 
-This plugin allows churches to display content from their [Church Social](http://churchsocialapp.com) account on their WordPress website. For example, it will display public events from the calendar as well as public sermons from the sermon archive. This is a great way to keep this content up-to-date on your church's public-facing website.
+This plugin allows churches to display content from their [Church Social](https://churchsocial.com) account on their WordPress website. For example, it will display public events from the calendar as well as public sermons from the sermon archive. This is a great way to keep this content up-to-date on your church's public-facing website.
 
-Note, you must be a Church Social customer to use this plugin, as it requires an API key. This plugin can be used with both the Church Social provided WordPress themes, as well as any other theme. To become a customer, or to simply learn more about Church Social, please visit our website at [churchsocialapp.com](http://churchsocialapp.com).
+Note, you must be a Church Social customer to use this plugin, as it requires an API key. This plugin can be used with both the Church Social provided WordPress themes, as well as any other theme. To become a customer, or to simply learn more about Church Social, please visit our website at [churchsocial.com](https://churchsocial.com).
 
 == Installation ==
 
@@ -27,13 +27,17 @@ Note, you must be a Church Social customer to use this plugin, as it requires an
 
 = What is Church Social? =
 
-[Church Social](http://churchsocialapp.com) is an online app built specifically for Reformed churches. It allows church administrators to manage member information securely and with ease. It also provides members access to a private area online where they can use helpful features like a member directory, sermon archive, scheduling tools, group emailer, sermon archive, and more.
+[Church Social](https://churchsocial.com) is an online app built specifically for Reformed churches. It allows church administrators to manage member information securely and with ease. It also provides members access to a private area online where they can use helpful features like a member directory, sermon archive, scheduling tools, group emailer, sermon archive, and more.
 
 = Why do I need to be a Church Social customer to use this plugin? =
 
 The purpose of this plugin is to show content from within a customer's Church Social account on their WordPress website. Without an account there would be no data to display.
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Updated to new churchsocial.com domain.
 
 = 1.0.0 =
 

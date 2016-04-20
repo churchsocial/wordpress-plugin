@@ -1,12 +1,12 @@
 <div class="church_social">
     <div class="wrap">
         <h2 class="church_social__logo">
-            <a href="http://churchsocialapp.com">
+            <a href="https://churchsocial.com">
                 <img src="<?php echo plugins_url('img/logo.png', dirname(__FILE__)) ?>" height="60">
             </a>
         </h2>
         <p class="description">
-            This plugin allows churches to display content from their <a href="http://churchsocialapp.com">Church Social</a> account on their WordPress website.
+            This plugin allows churches to display content from their <a href="https://churchsocial.com">Church Social</a> account on their WordPress website.
         </p>
         <form method="post" action="options.php">
             <?php settings_fields('church_social') ?>

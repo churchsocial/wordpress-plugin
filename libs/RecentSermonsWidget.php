@@ -60,7 +60,7 @@ class RecentSermonsWidget extends WP_Widget
     {
         $sermon_archive_page_url = $this->page_id ? get_permalink($this->page_id) : null;
 
-        $response = wp_remote_get('https://churchsocialapp.com/api/sermons?limit='.$instance['number_of_sermons'], [
+        $response = wp_remote_get('https://app.churchsocial.com/api/sermons?limit='.$instance['number_of_sermons'], [
             'headers' => [
                 'Authorization' => $this->api_key,
             ],
