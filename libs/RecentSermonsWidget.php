@@ -14,13 +14,9 @@ class RecentSermonsWidget extends WP_Widget
         $this->api_key = get_option('church_social_api_key');
         $this->page_id = (int) get_option('church_social_sermon_archive_page_id');
 
-        parent::__construct(
-            'church_social_sermon_archive_widget',
-            'Recent Sermons',
-            [
-                'description' => 'Show recent sermons from your Church Social sermon archive.',
-            ]
-        );
+        parent::__construct('church_social_recent_sermons', 'Recent Sermons', [
+            'description' => 'Show recent sermons from your Church Social sermon archive.',
+        ]);
 
         add_action('widgets_init', function () {
             register_widget('ChurchSocial\RecentSermonsWidget');
@@ -71,6 +67,9 @@ class RecentSermonsWidget extends WP_Widget
             $sermons = $response['data'];
         }
 
+        echo $args['before_widget'];
+        echo $args['before_title'].apply_filters('widget_title', 'Recent Sermons').$args['after_title'];
         include dirname(__DIR__).'/views/recent_sermons.php';
+        echo $args['after_widget'];
     }
 }

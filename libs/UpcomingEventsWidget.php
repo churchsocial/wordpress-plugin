@@ -14,13 +14,9 @@ class UpcomingEventsWidget extends WP_Widget
         $this->api_key = get_option('church_social_api_key');
         $this->page_id = (int) get_option('church_social_calendar_page_id');
 
-        parent::__construct(
-            'church_social_calendar_widget',
-            'Upcoming Events',
-            [
-                'description' => 'Show upcoming events from your Church Social calendar.',
-            ]
-        );
+        parent::__construct('church_social_upcoming_events', 'Upcoming Events', [
+            'description' => 'Show upcoming events from your Church Social calendar.',
+        ]);
 
         add_action('widgets_init', function () {
             register_widget('ChurchSocial\UpcomingEventsWidget');
@@ -71,6 +67,9 @@ class UpcomingEventsWidget extends WP_Widget
             $events = $response['data'];
         }
 
+        echo $args['before_widget'];
+        echo $args['before_title'].apply_filters('widget_title', 'Upcoming Events').$args['after_title'];
         include dirname(__DIR__).'/views/upcoming_events.php';
+        echo $args['after_widget'];
     }
 }
