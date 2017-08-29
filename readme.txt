@@ -35,6 +35,10 @@ The purpose of this plugin is to show content from within a customer's Church So
 
 == Changelog ==
 
+= 1.0.3 =
+
+* Standardize CSS class names for easier style customization.
+
 = 1.0.2 =
 
 * Improvements to the "recent sermons" and "upcoming events" widgets.
