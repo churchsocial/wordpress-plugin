@@ -11,7 +11,7 @@
 
         <h3 class="church_social_sermon_archive__sermon_preached_title">Preached:</h3>
         <p class="church_social_sermon_archive__sermon_preached">
-            <?php echo date_create($this->sermon['preached_date'], timezone_open(get_option('timezone_string')))->format('l, F j, Y') ?>
+            <?php ChurchSocial\Util::date($this->sermon['preached_date'], 'l, F j, Y') ?>
             <?php if ($this->sermon['preached_time']): ?>
                 (<?php echo $this->sermon['preached_time'] ?>)
             <?php endif ?>

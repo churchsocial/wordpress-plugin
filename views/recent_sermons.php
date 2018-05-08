@@ -13,7 +13,7 @@
                         <?php endif ?>
                     </div>
                     <div class="church_social_sermon_archive__widget_description">
-                        Preached <?php if ($sermon['author']): ?>by <?php echo $sermon['author'] ?> <?php endif ?>on <?php echo date_create($sermon['preached_date'], timezone_open(get_option('timezone_string')))->format('F j, Y') ?><?php if ($sermon['preached_time']): ?> in the <?php echo strtolower($sermon['preached_time']) ?>.<?php else: ?>.<?php endif ?>
+                        Preached <?php if ($sermon['author']): ?>by <?php echo $sermon['author'] ?> <?php endif ?>on <?php echo ChurchSocial\Util::date($sermon['preached_date'], 'F j, Y') ?><?php if ($sermon['preached_time']): ?> in the <?php echo strtolower($sermon['preached_time']) ?>.<?php else: ?>.<?php endif ?>
                     </div>
                 </li>
             <?php endforeach ?>

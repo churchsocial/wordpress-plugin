@@ -34,7 +34,7 @@
                 <?php foreach ($this->sermons as $sermon): ?>
                     <tr>
                         <td class="church_social_sermon_archive__table_date">
-                            <?php echo date_create($sermon['preached_date'], timezone_open(get_option('timezone_string')))->format('M j, Y') ?>
+                            <?php echo ChurchSocial\Util::date($sermon['preached_date'], 'M j, Y') ?>
                         </td>
                         <td class="church_social_sermon_archive__table_preached_time">
                             <?php if ($sermon['preached_time']): ?>

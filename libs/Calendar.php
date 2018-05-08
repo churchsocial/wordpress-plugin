@@ -62,7 +62,7 @@ class Calendar
 
         $response = json_decode($response['body'], true);
         $event = $response['data'];
-        $event['date'] = date_create($event['date'], timezone_open(get_option('timezone_string')));
+        $event['date'] = Util::date($event['date']);
 
         $this->event = $event;
     }
@@ -93,9 +93,9 @@ class Calendar
 
         $response = json_decode($response['body'], true);
         $this->events = $response['data'];
-        $this->previous_month = date_create($response['meta']['previous'], timezone_open(get_option('timezone_string')));
-        $this->current_month = date_create($response['meta']['month'], timezone_open(get_option('timezone_string')));
-        $this->next_month = date_create($response['meta']['next'], timezone_open(get_option('timezone_string')));
+        $this->previous_month = Util::date($response['meta']['previous']);
+        $this->current_month = Util::date($response['meta']['month']);
+        $this->next_month = Util::date($response['meta']['next']);
     }
 
     public function getPageTitle($title)

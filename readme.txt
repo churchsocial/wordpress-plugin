@@ -35,11 +35,15 @@ The purpose of this plugin is to show content from within a customer's Church So
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Added support for GMT offset timezones
+
 = 1.1.0 =
 
-* Add new document (PDF) sermon format
-* Respect timezone when displaying dates
-* Improve handling of missing sermon data
+* Added new document (PDF) sermon format
+* Updated dates to use the configured timezone
+* Improved handling of missing sermon data
 
 = 1.0.3 =
 
