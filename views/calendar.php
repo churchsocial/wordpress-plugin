@@ -2,7 +2,7 @@
     <h2 class="church_social_calendar__title"><?php echo $this->current_month->format('F Y') ?></h2>
     <div class="church_social_calendar__controls">
         <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->previous_month->format('Y-m') ?>">Previous Month</a>
-        <a class="church_social_calendar__controls_link" href="?month=<?php echo date_create()->format('Y-m') ?>">Today</a>
+        <a class="church_social_calendar__controls_link" href="?month=<?php echo date_create('today', timezone_open(get_option('timezone_string')))->format('Y-m') ?>">Today</a>
         <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->next_month->format('Y-m') ?>">Next Month</a>
     </div>
     <table class="church_social_calendar__table">
@@ -22,11 +22,11 @@
 
                     // Add days of the month
                     for ($list_day = 1; $list_day <= $days_in_month; $list_day++) {
-                        $day = date_create($this->current_month->format('F').' '.$list_day.', '.$this->current_month->format('Y'));
+                        $day = date_create($this->current_month->format('F').' '.$list_day.', '.$this->current_month->format('Y'), timezone_open(get_option('timezone_string')));
 
                         $day_classes = [];
 
-                        if ($day->format('Y-m-d') === date_create('today')->format('Y-m-d')) {
+                        if ($day->format('Y-m-d') === date_create('today', timezone_open(get_option('timezone_string')))->format('Y-m-d')) {
                             echo '<td class="church_social_calendar__day church_social_calendar__day--today">';
                         } else {
                             echo '<td class="church_social_calendar__day">';
@@ -36,9 +36,9 @@
                         echo '<span class="church_social_calendar__day_number">'.$day->format('D j').'</span>';
 
                         foreach ($this->events as $event) {
-                            if (date_create($event['date'])->format('Y-m-d') === $day->format('Y-m-d')) {
+                            if (date_create($event['date'], timezone_open(get_option('timezone_string')))->format('Y-m-d') === $day->format('Y-m-d')) {
                                 echo '<div class="church_social_calendar__event">';
-                                echo '<a class="church_social_calendar__event_link" href="?event_id='.$event['id'].'&event_date='.date_create($event['date'])->format('Y-m-d').'">'.$event['title'].'</a>';
+                                echo '<a class="church_social_calendar__event_link" href="?event_id='.$event['id'].'&event_date='.date_create($event['date'], timezone_open(get_option('timezone_string')))->format('Y-m-d').'">'.$event['title'].'</a>';
                                 echo '</div>';
                             }
                         }
