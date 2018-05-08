@@ -9,6 +9,8 @@ Author URI: https://churchsocial.com
 Version: 1.0.3
 */
 
+define('CHURCH_SOCIAL_DOMAIN', 'https://app.churchsocial.com');
+
 include 'libs/Styles.php';
 include 'libs/Settings.php';
 include 'libs/Calendar.php';

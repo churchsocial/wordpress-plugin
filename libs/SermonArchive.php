@@ -40,7 +40,7 @@ class SermonArchive
             return;
         }
 
-        $response = wp_remote_get('https://app.churchsocial.com/api/sermons/'.$sermon_id, [
+        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/sermons/'.$sermon_id, [
             'headers' => [
                 'Authorization' => $this->api_key,
             ],
@@ -67,7 +67,7 @@ class SermonArchive
             return;
         }
 
-        $response = wp_remote_get('https://app.churchsocial.com/api/sermons', [
+        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/sermons', [
             'headers' => [
                 'Authorization' => $this->api_key,
             ],

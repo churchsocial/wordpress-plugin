@@ -42,7 +42,7 @@ class Calendar
             return;
         }
 
-        $response = wp_remote_get('https://app.churchsocial.com/api/events/'.$event_id.'/'.$event_date, [
+        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/events/'.$event_id.'/'.$event_date, [
             'headers' => [
                 'Authorization' => $this->api_key,
             ],
@@ -73,7 +73,7 @@ class Calendar
             return;
         }
 
-        $response = wp_remote_get('https://app.churchsocial.com/api/events'.(isset($_GET['month']) ? '?month='.$_GET['month'] : ''), [
+        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/events'.(isset($_GET['month']) ? '?month='.$_GET['month'] : ''), [
             'headers' => [
                 'Authorization' => $this->api_key,
             ],
