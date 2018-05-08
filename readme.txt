@@ -35,7 +35,7 @@ The purpose of this plugin is to show content from within a customer's Church So
 
 == Changelog ==
 
-= 1.1.1 =
+= 1.1.2 =
 
 * Added support for GMT offset timezones
 
