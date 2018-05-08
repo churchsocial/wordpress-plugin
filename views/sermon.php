@@ -17,15 +17,19 @@
             <?php endif ?>
         </p>
 
-        <h3 class="church_social_sermon_archive__sermon_author_title">Author:</h3>
-        <p class="church_social_sermon_archive__sermon_author"><?php echo $this->sermon['author'] ?></p>
+        <?php if ($this->sermon['author']): ?>
+            <h3 class="church_social_sermon_archive__sermon_author_title">Author:</h3>
+            <p class="church_social_sermon_archive__sermon_author"><?php echo $this->sermon['author'] ?></p>
+        <?php endif ?>
 
-        <h3 class="church_social_sermon_archive__sermon_texts_title">Texts:</h3>
-        <ul class="church_social_sermon_archive__sermon_texts">
-            <?php foreach ($this->sermon['texts'] as $text): ?>
-                <li class="church_social_sermon_archive__sermon_text"><?php echo $text ?></li>
-            <?php endforeach ?>
-        </ul>
+        <?php if ($this->sermon['texts']): ?>
+            <h3 class="church_social_sermon_archive__sermon_texts_title">Texts:</h3>
+            <ul class="church_social_sermon_archive__sermon_texts">
+                <?php foreach ($this->sermon['texts'] as $text): ?>
+                    <li class="church_social_sermon_archive__sermon_text"><?php echo $text ?></li>
+                <?php endforeach ?>
+            </ul>
+        <?php endif ?>
 
         <?php foreach ($this->sermon['formats'] as $format): ?>
             <h3 class="church_social_sermon_archive__sermon_format_title"><?php echo $format['description'] ?>:</h3>
