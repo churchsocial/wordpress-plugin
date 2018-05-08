@@ -41,11 +41,17 @@
             <?php if ($format['type'] === 'Audio'): ?>
                 <p>
                     <audio class="church_social_sermon_archive__sermon_audio_controls" controls>
-                        <source src="<?php echo $format['audio_url'] ?>" type="audio/mpeg">
+                        <source src="<?php echo $format['file_url'] ?>" type="audio/mpeg">
                     </audio>
                 </p>
                 <p>
-                    <a class="church_social_sermon_archive__sermon_download_button" href="<?php echo $format['audio_url'] ?>">Download MP3</a>
+                    <a class="church_social_sermon_archive__sermon_download_button" href="<?php echo $format['file_url'] ?>">Download MP3</a>
+                </p>
+            <?php endif ?>
+
+            <?php if ($format['type'] === 'Document'): ?>
+                <p>
+                    <a class="church_social_sermon_archive__sermon_download_button" href="<?php echo $format['file_url'] ?>">Download PDF</a>
                 </p>
             <?php endif ?>
         <?php endforeach ?>
