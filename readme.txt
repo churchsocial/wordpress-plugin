@@ -35,6 +35,10 @@ The purpose of this plugin is to show content from within a customer's Church So
 
 == Changelog ==
 
+= 1.1.3 =
+
+* Fix bug where sermon page was not showing the date
+
 = 1.1.2 =
 
 * Added support for GMT offset timezones

@@ -11,7 +11,7 @@
 
         <h3 class="church_social_sermon_archive__sermon_preached_title">Preached:</h3>
         <p class="church_social_sermon_archive__sermon_preached">
-            <?php ChurchSocial\Util::date($this->sermon['preached_date'], 'l, F j, Y') ?>
+            <?php echo ChurchSocial\Util::date($this->sermon['preached_date'], 'l, F j, Y') ?>
             <?php if ($this->sermon['preached_time']): ?>
                 (<?php echo $this->sermon['preached_time'] ?>)
             <?php endif ?>

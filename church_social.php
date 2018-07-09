@@ -6,7 +6,7 @@ Plugin URI: https://github.com/churchsocial/wordpress-plugin
 Description: This plugin allows churches to display content from their Church Social account on their WordPress website.
 Author: Church Social
 Author URI: https://churchsocial.com
-Version: 1.1.2
+Version: 1.1.3
 */
 
 define('CHURCH_SOCIAL_DOMAIN', 'https://app.churchsocial.com');
