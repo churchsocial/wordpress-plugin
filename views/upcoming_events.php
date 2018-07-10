@@ -5,7 +5,7 @@
                 <li class="church_social_calendar__widget_item">
                     <div class="church_social_calendar__widget_title">
                         <?php if ($calendar_page_url): ?>
-                            <a class="church_social_calendar__widget_link" href="<?php echo $calendar_page_url ?>?event_id=<?php echo $event['id'] ?>&amp;event_date=<?php ChurchSocial\Util::date($event['date'], 'Y-m-d') ?>">
+                            <a class="church_social_calendar__widget_link" href="<?php echo $calendar_page_url ?>?event_id=<?php echo $event['id'] ?>&amp;event_date=<?php echo ChurchSocial\Util::date($event['date'], 'Y-m-d') ?>">
                                 <?php echo $event['title'] ?>
                             </a>
                         <?php else: ?>
