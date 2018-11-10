@@ -42,7 +42,16 @@
                             <?php endif ?>
                         </td>
                         <td class="church_social_sermon_archive__table_title"><a href="?sermon_id=<?php echo $sermon['id'] ?>"><?php echo $sermon['title'] ?></a></td>
-                        <td class="church_social_sermon_archive__table_author"><?php echo $sermon['author'] ?></td>
+                        <td class="church_social_sermon_archive__table_author">
+                            <?php if ($sermon['author'] && !$sermon['read_by_name']): ?>
+                                <?php echo $sermon['author'] ?>
+                            <?php elseif (!$sermon['author'] && $sermon['read_by_name']): ?>
+                                Read by <?php echo $sermon['read_by_name'] ?>
+                            <?php elseif ($sermon['author'] && $sermon['read_by_name']): ?>
+                                <div><?php echo $sermon['author'] ?></div>
+                                <div>(Read by <?php echo $sermon['read_by_name'] ?>)</div>
+                            <?php endif ?>
+                        </td>
                         <td class="church_social_sermon_archive__table_passage"><?php echo $sermon['passage'] ?></td>
                     </tr>
                 <?php endforeach ?>

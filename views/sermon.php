@@ -17,9 +17,18 @@
             <?php endif ?>
         </p>
 
-        <?php if ($this->sermon['author']): ?>
-            <h3 class="church_social_sermon_archive__sermon_author_title">Author:</h3>
-            <p class="church_social_sermon_archive__sermon_author"><?php echo $this->sermon['author'] ?></p>
+        <?php if ($this->sermon['author'] || $this->sermon['read_by_name']): ?>
+            <h3 class="church_social_sermon_archive__sermon_author_title">Minister:</h3>
+            <p class="church_social_sermon_archive__sermon_author">
+                <?php if ($this->sermon['author'] && !$this->sermon['read_by_name']): ?>
+                    <?php echo $this->sermon['author'] ?>
+                <?php elseif (!$this->sermon['author'] && $this->sermon['read_by_name']): ?>
+                    Read by <?php echo $this->sermon['read_by_name'] ?>
+                <?php elseif ($this->sermon['author'] && $this->sermon['read_by_name']): ?>
+                    <div><?php echo $this->sermon['author'] ?></div>
+                    <div>(Read by <?php echo $this->sermon['read_by_name'] ?>)</div>
+                <?php endif ?>
+            </p>
         <?php endif ?>
 
         <?php if ($this->sermon['texts']): ?>

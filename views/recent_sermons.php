@@ -13,7 +13,7 @@
                         <?php endif ?>
                     </div>
                     <div class="church_social_sermon_archive__widget_description">
-                        Preached <?php if ($sermon['author']): ?>by <?php echo $sermon['author'] ?> <?php endif ?>on <?php echo ChurchSocial\Util::date($sermon['preached_date'], 'F j, Y') ?><?php if ($sermon['preached_time']): ?> in the <?php echo strtolower($sermon['preached_time']) ?>.<?php else: ?>.<?php endif ?>
+                        <?php if ($sermon['author'] && !$sermon['read_by_name']): ?>Preached by <?php echo $sermon['author'] ?> on <?php elseif ($sermon['read_by_name']): ?>Read by <?php echo $sermon['read_by_name'] ?> on <?php endif ?><?php echo ChurchSocial\Util::date($sermon['preached_date'], 'F j, Y') ?><?php if ($sermon['preached_time']): ?> in the <?php echo strtolower($sermon['preached_time']) ?>.<?php else: ?>.<?php endif ?>
                     </div>
                 </li>
             <?php endforeach ?>
