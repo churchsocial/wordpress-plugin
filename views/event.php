@@ -22,7 +22,7 @@
     <?php if ($this->event['description']): ?>
         <h3 class="church_social_calendar__event_sub_title church_social_calendar__event_sub_title--description">Description:</h3>
         <p class="church_social_calendar__event_details church_social_calendar__event_details--description">
-            <?php echo $this->event['description'] ?>
+            <?php echo nl2br($this->event['description']) ?>
         </p>
     <?php endif ?>
 

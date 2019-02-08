@@ -2,7 +2,7 @@
 Contributors: reinink
 Tags: sermons, calendar, events, church
 Requires at least: 4.0
-Tested up to: 4.9.8
+Tested up to: 5.0.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,6 +34,10 @@ Note, you must be a Church Social customer to use this plugin, as it requires an
 The purpose of this plugin is to show content from within a customer's Church Social account on their WordPress website. Without an account there would be no data to display.
 
 == Changelog ==
+
+= 1.2.1 =
+
+* Fix formatting of event descriptions
 
 = 1.2.0 =
 
