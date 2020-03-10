@@ -5,6 +5,7 @@ namespace ChurchSocial;
 class Calendar
 {
     protected $api_key;
+    protected $error;
     protected $page_id;
     protected $events;
     protected $previous_month;
@@ -42,19 +43,11 @@ class Calendar
             return;
         }
 
-        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/events/'.$event_id.'/'.$event_date, [
-            'headers' => [
-                'Authorization' => $this->api_key,
-            ],
-        ]);
+        $response = wp_remote_get(
+            CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/events/'.$event_id.'/'.$event_date
+        );
 
-        if (!is_array($response)) {
-            $this->error = true;
-
-            return;
-        }
-
-        if ($response['response']['code'] === 404) {
+        if (!is_array($response) || $response['response']['code'] !== 200) {
             $this->error = true;
 
             return;
@@ -73,19 +66,11 @@ class Calendar
             return;
         }
 
-        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/events'.(isset($_GET['month']) ? '?month='.$_GET['month'] : ''), [
-            'headers' => [
-                'Authorization' => $this->api_key,
-            ],
-        ]);
+        $response = wp_remote_get(
+            CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/events'.(isset($_GET['month']) ? '?month='.$_GET['month'] : '')
+        );
 
-        if (!is_array($response)) {
-            $this->error = true;
-
-            return;
-        }
-
-        if ($response['response']['code'] === 404) {
+        if (!is_array($response) || $response['response']['code'] !== 200) {
             $this->error = true;
 
             return;

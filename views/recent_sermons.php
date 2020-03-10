@@ -13,7 +13,24 @@
                         <?php endif ?>
                     </div>
                     <div class="church_social_sermon_archive__widget_description">
-                        <?php if ($sermon['author'] && !$sermon['read_by_name']): ?>Preached by <?php echo $sermon['author'] ?> on <?php elseif ($sermon['read_by_name']): ?>Read by <?php echo $sermon['read_by_name'] ?> on <?php endif ?><?php echo ChurchSocial\Util::date($sermon['preached_date'], 'F j, Y') ?><?php if ($sermon['preached_time']): ?> in the <?php echo strtolower($sermon['preached_time']) ?>.<?php else: ?>.<?php endif ?>
+                        <?php if ($sermon['author'] && !$sermon['read_by_name']): ?>
+                            <div class="church_social_sermon_archive__widget_description_author">
+                                Preached by <?php echo $sermon['author']['name'] ?>
+                            </div>
+                        <?php elseif ($sermon['read_by_name']): ?>
+                            <div class="church_social_sermon_archive__widget_description_author">
+                                Read by <?php echo $sermon['read_by_name'] ?>
+                            </div>
+                        <?php endif ?>
+                        <?php if ($sermon['time']): ?>
+                            <div class="church_social_sermon_archive__widget_description_date">
+                                <?php echo ChurchSocial\Util::date($sermon['date'], 'F j, Y') ?> in the <?php echo strtolower($sermon['time']) ?>
+                            </div>
+                        <?php else: ?>
+                            <div class="church_social_sermon_archive__widget_description_date">
+                                <?php echo ChurchSocial\Util::date($sermon['date'], 'F j, Y') ?>
+                            </div>
+                        <?php endif ?>
                     </div>
                 </li>
             <?php endforeach ?>

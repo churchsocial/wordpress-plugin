@@ -11,9 +11,9 @@
 
         <h3 class="church_social_sermon_archive__sermon_preached_title">Preached:</h3>
         <p class="church_social_sermon_archive__sermon_preached">
-            <?php echo ChurchSocial\Util::date($this->sermon['preached_date'], 'l, F j, Y') ?>
-            <?php if ($this->sermon['preached_time']): ?>
-                (<?php echo $this->sermon['preached_time'] ?>)
+            <?php echo ChurchSocial\Util::date($this->sermon['date'], 'l, F j, Y') ?>
+            <?php if ($this->sermon['time']): ?>
+                (<?php echo $this->sermon['time'] ?>)
             <?php endif ?>
         </p>
 
@@ -21,11 +21,11 @@
             <h3 class="church_social_sermon_archive__sermon_author_title">Minister:</h3>
             <p class="church_social_sermon_archive__sermon_author">
                 <?php if ($this->sermon['author'] && !$this->sermon['read_by_name']): ?>
-                    <?php echo $this->sermon['author'] ?>
+                    <?php echo $this->sermon['author']['name'] ?>
                 <?php elseif (!$this->sermon['author'] && $this->sermon['read_by_name']): ?>
                     Read by <?php echo $this->sermon['read_by_name'] ?>
                 <?php elseif ($this->sermon['author'] && $this->sermon['read_by_name']): ?>
-                    <div><?php echo $this->sermon['author'] ?></div>
+                    <div><?php echo $this->sermon['author']['name'] ?></div>
                     <div>(Read by <?php echo $this->sermon['read_by_name'] ?>)</div>
                 <?php endif ?>
             </p>

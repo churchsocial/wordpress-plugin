@@ -56,13 +56,11 @@ class UpcomingEventsWidget extends WP_Widget
     {
         $calendar_page_url = $this->page_id ? get_permalink($this->page_id) : null;
 
-        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/events/upcoming?limit='.$instance['number_of_events'], [
-            'headers' => [
-                'Authorization' => $this->api_key,
-            ],
-        ]);
+        $response = wp_remote_get(
+            CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/events/upcoming?limit='.$instance['number_of_events']
+        );
 
-        if (is_array($response) and $response['response']['code'] !== 404) {
+        if (is_array($response) and $response['response']['code'] === 200) {
             $response = json_decode($response['body'], true);
             $events = $response['data'];
         }

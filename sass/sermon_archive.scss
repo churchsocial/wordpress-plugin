@@ -1,4 +1,7 @@
 .church_social_sermon_archive {
+
+    /* Index */
+
     &__search_form {}
 
     &__search_form_minister_label {}
@@ -11,8 +14,6 @@
 
     &__table_date_header {}
 
-    &__table_preached_time_header {}
-
     &__table_title_header {}
 
     &__table_author_header {}
@@ -21,8 +22,6 @@
 
     &__table_date {}
 
-    &__table_preached_time {}
-
     &__table_title {}
 
     &__table_author {}
@@ -30,6 +29,14 @@
     &__table_passage {}
 
     &__table_no_sermons_found {}
+
+    &__prev_and_next_page_buttons {}
+
+    &__prev_page_button {}
+
+    &__next_page_button {}
+
+    /* Sermon */
 
     &__sermon {}
 
@@ -63,7 +70,13 @@
 
     &__sermon_back_button {}
 
+    /* Widget */
+
     &__widget_title {}
 
     &__widget_description {}
+
+    &__widget_description_author {}
+
+    &__widget_description_date {}
 }

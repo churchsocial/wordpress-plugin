@@ -5,6 +5,7 @@ namespace ChurchSocial;
 class SermonArchive
 {
     protected $api_key;
+    protected $error;
     protected $page_id;
     protected $sermons;
     protected $authors;
@@ -31,6 +32,7 @@ class SermonArchive
             $this->loadSermonData($_GET['sermon_id']);
         } else {
             $this->loadSermonsData();
+            $this->loadAuthorData();
         }
     }
 
@@ -40,25 +42,17 @@ class SermonArchive
             return;
         }
 
-        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/sermons/'.$sermon_id, [
-            'headers' => [
-                'Authorization' => $this->api_key,
-            ],
-        ]);
+        $response = wp_remote_get(
+            CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/sermons/'.$sermon_id
+        );
 
-        if (!is_array($response)) {
+        if (!is_array($response) || $response['response']['code'] !== 200) {
             $this->error = true;
 
             return;
         }
 
-        if ($response['response']['code'] === 404) {
-            $this->error = true;
-
-            return;
-        }
-
-        $this->sermon = json_decode($response['body'], true);
+        $this->sermon = json_decode($response['body'], true)['data'];
     }
 
     public function loadSermonsData()
@@ -67,19 +61,14 @@ class SermonArchive
             return;
         }
 
-        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/sermons', [
-            'headers' => [
-                'Authorization' => $this->api_key,
-            ],
-        ]);
+        $response = wp_remote_get(
+            CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/sermons?'.http_build_query([
+                'page' => get_query_var('page'),
+                'author' => (isset($_GET['author_id']) ? $_GET['author_id'] : null),
+            ])
+        );
 
-        if (!is_array($response)) {
-            $this->error = true;
-
-            return;
-        }
-
-        if ($response['response']['code'] === 404) {
+        if (!is_array($response) || $response['response']['code'] !== 200) {
             $this->error = true;
 
             return;
@@ -87,13 +76,25 @@ class SermonArchive
 
         $response = json_decode($response['body'], true);
         $this->sermons = $response['data'];
-        $this->authors = $response['meta']['authors'];
+        $this->meta = $response['meta'];
+    }
 
-        if (isset($_GET['author']) and $_GET['author']) {
-            $this->sermons = array_filter($this->sermons, function ($sermon) {
-                return $sermon['author'] === $_GET['author'];
-            });
+    public function loadAuthorData()
+    {
+        if ($this->authors) {
+            return;
         }
+
+        $response = wp_remote_get(
+            CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/sermon-authors'
+        );
+
+        if (!is_array($response) || $response['response']['code'] !== 200) {
+            return;
+        }
+
+        $response = json_decode($response['body'], true);
+        $this->authors = $response['data'];
     }
 
     public function getPageTitle($title)
@@ -112,7 +113,7 @@ class SermonArchive
         $this->loadData();
 
         if ($this->error) {
-            return 'Unable to load sermon archive data.';
+            return 'Unable to load sermon data.';
         }
 
         if (is_array($this->sermons)) {

@@ -56,13 +56,11 @@ class RecentSermonsWidget extends WP_Widget
     {
         $sermon_archive_page_url = $this->page_id ? get_permalink($this->page_id) : null;
 
-        $response = wp_remote_get(CHURCH_SOCIAL_DOMAIN.'/api/sermons?limit='.$instance['number_of_sermons'], [
-            'headers' => [
-                'Authorization' => $this->api_key,
-            ],
-        ]);
+        $response = wp_remote_get(
+            CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/sermons?limit='.$instance['number_of_sermons']
+        );
 
-        if (is_array($response) and $response['response']['code'] !== 404) {
+        if (is_array($response) and $response['response']['code'] === 200) {
             $response = json_decode($response['body'], true);
             $sermons = $response['data'];
         }
