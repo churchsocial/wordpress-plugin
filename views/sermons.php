@@ -38,9 +38,8 @@
                 <?php foreach ($this->sermons as $sermon): ?>
                     <tr>
                         <td class="church_social_sermon_archive__table_date">
-
                             <?php if ($sermon['time']): ?>
-                                <?php echo ChurchSocial\Util::date($sermon['date'], 'M j, Y') ?> (<?php echo $sermon['time'] ?>)
+                                <?php echo ChurchSocial\Util::date($sermon['date'], 'M j, Y') ?> <span class="church_social_sermon_archive__table_time">(<?php echo $sermon['time'] ?>)</span>
                             <?php else: ?>
                                 <?php echo ChurchSocial\Util::date($sermon['date'], 'M j, Y') ?>
                             <?php endif ?>
@@ -57,8 +56,8 @@
                             <?php endif ?>
                         </td>
                         <td class="church_social_sermon_archive__table_passage">
-                            <?php if ($sermon['texts']): ?>
-                                <?php echo $sermon['texts'][0] ?>
+                            <?php if ($sermon['key_text']): ?>
+                                <?php echo $sermon['key_text'] ?>
                             <?php endif ?>
                         </td>
                     </tr>
@@ -72,13 +71,13 @@
     </table>
 
     <p class="church_social_sermon_archive__prev_and_next_page_buttons">
-        <?php if ($this->meta['current_page'] > 1): ?>
-            <a class="church_social_sermon_archive__prev_page_button" href="?page=<?php echo $this->meta['current_page'] - 1?><?php echo isset($_GET['author_id']) ? '&author_id='.$_GET['author_id'] : '' ?>">
+        <?php if ($this->meta['previous_page']): ?>
+            <a class="church_social_sermon_archive__prev_page_button" href="?page=<?php echo $this->meta['previous_page']?><?php echo isset($_GET['author_id']) ? '&author_id='.$_GET['author_id'] : '' ?>">
                 Previous page
             </a>
         <?php endif ?>
-        <?php if ($this->meta['current_page'] < $this->meta['last_page']): ?>
-            <a class="church_social_sermon_archive__next_page_button" href="?page=<?php echo $this->meta['current_page'] + 1?><?php echo isset($_GET['author_id']) ? '&author_id='.$_GET['author_id'] : '' ?>">
+        <?php if ($this->meta['next_page']): ?>
+            <a class="church_social_sermon_archive__next_page_button" href="?page=<?php echo $this->meta['next_page']?><?php echo isset($_GET['author_id']) ? '&author_id='.$_GET['author_id'] : '' ?>">
                 Next page
             </a>
         <?php endif ?>

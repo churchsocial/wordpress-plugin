@@ -11,6 +11,7 @@ class Calendar
     protected $previous_month;
     protected $current_month;
     protected $next_month;
+    protected $this_month;
     protected $event;
 
     public function __construct()
@@ -56,6 +57,8 @@ class Calendar
         $response = json_decode($response['body'], true);
         $event = $response['data'];
         $event['date'] = Util::date($event['date']);
+        $event['start_time'] = $event['start_time'] ? $event['date']->modify($event['start_time']) : null;
+        $event['end_time'] = $event['end_time'] ? $event['date']->modify($event['end_time']) : null;
 
         $this->event = $event;
     }
@@ -78,9 +81,10 @@ class Calendar
 
         $response = json_decode($response['body'], true);
         $this->events = $response['data'];
-        $this->previous_month = Util::date($response['meta']['previous']);
-        $this->current_month = Util::date($response['meta']['month']);
-        $this->next_month = Util::date($response['meta']['next']);
+        $this->previous_month = $response['meta']['previous_month'];
+        $this->current_month = Util::date($response['meta']['current_month']);
+        $this->next_month = $response['meta']['next_month'];
+        $this->this_month = Util::date('today', 'Y-m');
     }
 
     public function getPageTitle($title)

@@ -20,9 +20,9 @@ class Util
     public static function date($date, $format = null)
     {
         if ($format) {
-            return date_create($date, static::getTimezone())->format($format);
+            return date_create_immutable($date, static::getTimezone())->format($format);
         } else {
-            return date_create($date, static::getTimezone());
+            return date_create_immutable($date, static::getTimezone());
         }
     }
 }

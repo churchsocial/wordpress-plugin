@@ -5,12 +5,18 @@
 
     <h3 class="church_social_calendar__event_sub_title church_social_calendar__event_sub_title--date">Date:</h3>
     <p class="church_social_calendar__event_details church_social_calendar__event_details--date">
-        <?php if ($this->event['date']->format('H:i:s') === '00:00:00'): ?>
-            <?php echo $this->event['date']->format('l, F j, Y') ?>
-        <?php else: ?>
-            <?php echo $this->event['date']->format('l, F j, Y \a\t g:i A') ?>
-        <?php endif ?>
+        <?php echo $this->event['date']->format('l, F j, Y') ?>
     </p>
+
+    <?php if ($this->event['start_time']): ?>
+        <h3 class="church_social_calendar__event_sub_title church_social_calendar__event_sub_title--date">Time:</h3>
+        <p class="church_social_calendar__event_details church_social_calendar__event_details--date">
+            <?php echo $this->event['start_time']->format('g:ia') ?>
+            <?php if ($this->event['end_time']): ?>
+                to <?php echo $this->event['end_time']->format('g:ia') ?>
+            <?php endif ?>
+        </p>
+    <?php endif ?>
 
     <?php if ($this->event['location']): ?>
         <h3 class="church_social_calendar__event_sub_title church_social_calendar__event_sub_title--location">Location:</h3>

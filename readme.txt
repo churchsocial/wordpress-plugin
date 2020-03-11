@@ -35,6 +35,10 @@ The purpose of this plugin is to show content from within a customer's Church So
 
 == Changelog ==
 
+= 1.3.3 =
+
+* More updates for the new Church Social public API
+
 = 1.3.2 =
 
 * Fix another bug with sermon pagination

@@ -1,9 +1,9 @@
 <div class="church_social_calendar">
-    <h2 class="church_social_calendar__title"><?php echo $this->current_month->format('F Y'); ?></h2>
+    <h2 class="church_social_calendar__title"><?php echo $this->current_month->format('F Y') ?></h2>
     <div class="church_social_calendar__controls">
-        <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->previous_month->format('Y-m'); ?>">Previous Month</a>
-        <a class="church_social_calendar__controls_link" href="?month=<?php echo ChurchSocial\Util::date('today', 'Y-m'); ?>">Today</a>
-        <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->next_month->format('Y-m'); ?>">Next Month</a>
+        <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->previous_month ?>">Previous Month</a>
+        <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->this_month ?>">Today</a>
+        <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->next_month ?>">Next Month</a>
     </div>
     <table class="church_social_calendar__table">
         <tbody>

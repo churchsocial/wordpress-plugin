@@ -64,7 +64,7 @@ class SermonArchive
         $response = wp_remote_get(
             CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/sermons?'.http_build_query([
                 'page' => get_query_var('page'),
-                'author' => (isset($_GET['author_id']) ? $_GET['author_id'] : null),
+                'author_id' => (isset($_GET['author_id']) ? $_GET['author_id'] : null),
             ])
         );
 

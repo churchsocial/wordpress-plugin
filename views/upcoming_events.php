@@ -13,10 +13,10 @@
                         <?php endif ?>
                     </div>
                     <div class="church_social_calendar__widget_description">
-                        <?php if (ChurchSocial\Util::date($event['date'], 'H:i:s') === '00:00:00'): ?>
-                            <?php echo ChurchSocial\Util::date($event['date'], 'l, F j, Y') ?>
+                        <?php if ($event['start_time']): ?>
+                            <?php echo ChurchSocial\Util::date($event['date'].' '.$event['start_time'], 'l, F j, Y \a\t g:i A') ?>
                         <?php else: ?>
-                            <?php echo ChurchSocial\Util::date($event['date'], 'l, F j, Y \a\t g:i A') ?>
+                            <?php echo ChurchSocial\Util::date($event['date'], 'l, F j, Y') ?>
                         <?php endif ?>
                     </div>
                 </li>
