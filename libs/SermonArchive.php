@@ -120,7 +120,7 @@ class SermonArchive
             ob_start();
             include dirname(__DIR__).'/views/sermons.php';
 
-            return ob_get_clean();
+            return $content.ob_get_clean();
         }
 
         if (is_array($this->sermon)) {

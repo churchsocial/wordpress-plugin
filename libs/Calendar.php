@@ -110,7 +110,7 @@ class Calendar
             ob_start();
             include dirname(__DIR__).'/views/calendar.php';
 
-            return ob_get_clean();
+            return $content.ob_get_clean();
         }
 
         if (is_array($this->event)) {
