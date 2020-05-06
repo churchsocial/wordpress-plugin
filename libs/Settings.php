@@ -24,6 +24,7 @@ class Settings
             add_option('church_social_theme', '');
             add_option('church_social_calendar_page_id', '');
             add_option('church_social_sermon_archive_page_id', '');
+            add_option('church_social_sermon_copyright_notice', '');
         });
 
         register_deactivation_hook($this->plugin_file, function () {
@@ -31,6 +32,7 @@ class Settings
             delete_option('church_social_theme');
             delete_option('church_social_calendar_page_id');
             delete_option('church_social_sermon_archive_page_id');
+            delete_option('church_social_sermon_copyright_notice');
         });
 
         add_action('admin_init', function () {
@@ -38,6 +40,7 @@ class Settings
             register_setting('church_social', 'church_social_theme');
             register_setting('church_social', 'church_social_calendar_page_id');
             register_setting('church_social', 'church_social_sermon_archive_page_id');
+            register_setting('church_social', 'church_social_sermon_copyright_notice');
         });
     }
 

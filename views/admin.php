@@ -14,19 +14,19 @@
                 <tr valign="top">
                     <th scope="row">API key:</th>
                     <td>
-                        <input type="text" name="church_social_api_key" value="<?php echo get_option('church_social_api_key') ?>" style="min-width: 300px;" />
+                        <input type="text" name="church_social_api_key" value="<?php echo esc_attr(get_option('church_social_api_key')) ?>" style="width: 100%; max-width: 300px;" />
                     </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row">Calendar page:</th>
                     <td>
-                        <select name="church_social_calendar_page_id" style="min-width: 300px;">
+                        <select name="church_social_calendar_page_id" style="width: 100%; max-width: 300px;">
                             <option></option>
                             <?php foreach (get_pages(['post_status' => 'publish,inherit,pending,private,future,draft,trash']) as $page): ?>
                                 <?php if (get_option('church_social_calendar_page_id') === (string) $page->ID): ?>
-                                    <option selected="selected" value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
+                                    <option selected="selected" value="<?php echo $page->ID ?>"><?php echo esc_html($page->post_title) ?></option>
                                 <?php else: ?>
-                                    <option value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
+                                    <option value="<?php echo $page->ID ?>"><?php echo esc_html($page->post_title) ?></option>
                                 <?php endif ?>
                             <?php endforeach ?>
                         </select>
@@ -35,13 +35,13 @@
                 <tr valign="top">
                     <th scope="row">Sermon archive page:</th>
                     <td>
-                        <select name="church_social_sermon_archive_page_id" style="min-width: 300px;">
+                        <select name="church_social_sermon_archive_page_id" style="width: 100%; max-width: 300px;">
                             <option></option>
                             <?php foreach (get_pages(['post_status' => 'publish,inherit,pending,private,future,draft,trash']) as $page): ?>
                                 <?php if (get_option('church_social_sermon_archive_page_id') === (string) $page->ID): ?>
-                                    <option selected="selected" value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
+                                    <option selected="selected" value="<?php echo $page->ID ?>"><?php echo esc_html($page->post_title) ?></option>
                                 <?php else: ?>
-                                    <option value="<?php echo $page->ID ?>"><?php echo $page->post_title ?></option>
+                                    <option value="<?php echo $page->ID ?>"><?php echo esc_html($page->post_title) ?></option>
                                 <?php endif ?>
                             <?php endforeach ?>
                         </select>
@@ -50,7 +50,7 @@
                 <tr valign="top">
                     <th scope="row">Theme:</th>
                     <td>
-                        <select name="church_social_theme" style="min-width: 300px;">
+                        <select name="church_social_theme" style="width: 100%; max-width: 300px;">
                             <option></option>
                             <?php foreach (['light', 'dark'] as $theme): ?>
                                 <?php if (get_option('church_social_theme') === $theme): ?>
@@ -61,6 +61,13 @@
                             <?php endforeach ?>
                         </select>
                         <p class="description">Helpful on non Church Social themes.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Sermon copyright notice:</th>
+                    <td>
+                        <textarea name="church_social_sermon_copyright_notice" style="width: 100%; max-width: 500px;" rows="3"><?php echo esc_html(get_option('church_social_sermon_copyright_notice')) ?></textarea>
+                        <p class="description">Shown on the bottom of the sermon page.</p>
                     </td>
                 </tr>
             </table>
