@@ -35,6 +35,10 @@ The purpose of this plugin is to show content from within a customer's Church So
 
 == Changelog ==
 
+= 1.5.1 =
+
+* Clean up plugin styles
+
 = 1.5.0 =
 
 * Add the ability to add a copyright notice on the sermon page
