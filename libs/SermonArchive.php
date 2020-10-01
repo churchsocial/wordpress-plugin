@@ -18,6 +18,7 @@ class SermonArchive
 
         add_filter('document_title_parts', [$this, 'getPageTitle']);
         add_filter('the_content', [$this, 'getContent']);
+        add_filter('get_canonical_url', [$this, 'getCanonicalUrl'], 10, 2);
     }
 
     public function loadData()
@@ -63,7 +64,7 @@ class SermonArchive
 
         $response = wp_remote_get(
             CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/sermons?'.http_build_query([
-                'page' => get_query_var('page'),
+                'page' => isset($_GET['sermon_page']) ? $_GET['sermon_page'] : 1,
                 'author_id' => (isset($_GET['author_id']) ? $_GET['author_id'] : null),
             ])
         );
@@ -131,5 +132,16 @@ class SermonArchive
         }
 
         return $content;
+    }
+
+    public function getCanonicalUrl($canonical_url, $post)
+    {
+        if ($this->page_id === $post->ID && isset($_GET['sermon_id'])) {
+            return get_permalink($post).'?sermon_id='.$_GET['sermon_id'];
+        } else if ($this->page_id === $post->ID && isset($_GET['sermon_page'])) {
+            return get_permalink($post).'?sermon_page='.$_GET['sermon_page'];
+        } else {
+            return $canonical_url;
+        }
     }
 }

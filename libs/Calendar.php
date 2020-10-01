@@ -21,6 +21,7 @@ class Calendar
 
         add_filter('document_title_parts', [$this, 'getPageTitle']);
         add_filter('the_content', [$this, 'getContent']);
+        add_filter('get_canonical_url', [$this, 'getCanonicalUrl'], 10, 2);
     }
 
     public function loadData()
@@ -121,5 +122,16 @@ class Calendar
         }
 
         return $content;
+    }
+
+    public function getCanonicalUrl($canonical_url, $post)
+    {
+        if ($this->page_id === $post->ID && isset($_GET['month'])) {
+            return get_permalink($post).'?month='.$_GET['month'];
+        } else if ($this->page_id === $post->ID && isset($_GET['event_id']) && isset($_GET['event_date'])) {
+            return get_permalink($post).'?event_id='.$_GET['event_id'].'&event_date='.$_GET['event_date'];
+        } else {
+            return $canonical_url;
+        }
     }
 }
