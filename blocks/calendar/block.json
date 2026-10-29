@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "church-social/calendar",
+    "title": "Church Social Calendar",
+    "category": "widgets",
+    "icon": "calendar-alt",
+    "description": "Show your church's public events from Church Social. Each event gets its own page under this one.",
+    "keywords": ["calendar", "events", "church social"],
+    "textdomain": "church-social",
+    "supports": {
+        "html": false,
+        "multiple": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true
+        }
+    },
+    "editorScript": "file:./index.js"
+}

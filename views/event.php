@@ -33,6 +33,6 @@
     <?php endif ?>
 
     <p class="church_social_calendar__event_buttons">
-        <a class="church_social_calendar__event_back_button" href="?month=<?php echo $this->event['date']->format('Y-m') ?>">Back to calendar</a>
+        <a class="church_social_calendar__event_back_button" href="<?php echo esc_url(ChurchSocial\Calendar::calendarUrl(['month' => $this->event['date']->format('Y-m')])) ?>">Back to calendar</a>
     </p>
 </div>

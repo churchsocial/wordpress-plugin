@@ -66,11 +66,7 @@
         <?php endforeach ?>
 
         <p>
-            <a class="church_social_sermon_archive__sermon_back_button" href="<?php the_permalink() ?>">Back to sermons</a>
-        </p>
-
-        <p>
-            <small class="church_social_sermon_archive__sermon_copyright_notice"><?php echo nl2br(get_option('church_social_sermon_copyright_notice')) ?></small>
+            <a class="church_social_sermon_archive__sermon_back_button" href="<?php echo esc_url(ChurchSocial\SermonArchive::archiveUrl()) ?>">Back to sermons</a>
         </p>
     </div>
 </div>

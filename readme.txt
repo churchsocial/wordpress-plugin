@@ -1,8 +1,8 @@
 === Church Social ===
 Contributors: reinink
 Tags: sermons, calendar, events, church
-Requires at least: 4.0
-Tested up to: 6.2.2
+Requires at least: 6.3
+Tested up to: 7.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,9 +20,12 @@ Note, you must be a Church Social customer to use this plugin, as it requires an
 - Upload the plugin into a `church-social` folder in the `/wp-content/plugins` directory.
 - Activate plugin in the WordPress admin.
 - In the WordPress admin, go to Settings, then Church Social, and enter your Church Social API key.
-- To enable the calendar or sermon archive, simply select the pages you want them to appear on.
 - You can also optionally set a theme, which is helpful if you're not using one of the Church Social provided WordPress themes.
+- To show your sermon archive, add the "Church Social Sermon Archive" block to a page. Each sermon gets its own address under that page, like `/sermons/123/sermon-title`.
+- To show your calendar, add the "Church Social Calendar" block to a page. Each event gets its own address under that page, like `/calendar/123/2026-11-01/event-title`.
 - To show your livestream, add the "Church Social Livestream" block to any page. If you use the classic editor, add the `[church_social_livestream]` shortcode instead.
+
+The sermon archive and calendar blocks need to be added to a page's content. They won't work in a theme template or a synced pattern.
 
 == Frequently Asked Questions ==
 
@@ -34,7 +37,21 @@ Note, you must be a Church Social customer to use this plugin, as it requires an
 
 The purpose of this plugin is to show content from within a customer's Church Social account on their WordPress website. Without an account there would be no data to display.
 
+== Upgrade Notice ==
+
+= 2.0.0 =
+
+The sermon archive and calendar are now blocks, and require WordPress 6.3 or newer. Your existing sermon archive and calendar pages are updated with the new blocks automatically.
+
 == Changelog ==
+
+= 2.0.0 =
+
+* Add Sermon Archive, Calendar and Livestream blocks
+* Give each sermon and event its own address, like `/sermons/123/sermon-title`, and redirect old links
+* Show a "page not found" error for sermons and events that don't exist
+* Remove the "Calendar page", "Sermon archive page" and "Sermon copyright notice" settings. Existing pages get the new blocks automatically, and the copyright notice is added below the sermon archive as a paragraph you can edit.
+* Require WordPress 6.3 or newer
 
 = 1.5.3 =
 

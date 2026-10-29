@@ -7,12 +7,10 @@ use WP_Widget;
 class UpcomingEventsWidget extends WP_Widget
 {
     protected $api_key;
-    protected $page_id;
 
     public function __construct()
     {
         $this->api_key = get_option('church_social_api_key');
-        $this->page_id = (int) get_option('church_social_calendar_page_id');
 
         parent::__construct('church_social_upcoming_events', 'Upcoming Events', [
             'description' => 'Show upcoming events from your Church Social calendar.',
@@ -54,7 +52,7 @@ class UpcomingEventsWidget extends WP_Widget
 
     public function widget($args, $instance)
     {
-        $calendar_page_url = $this->page_id ? get_permalink($this->page_id) : null;
+        $calendar_page_url = Pages::get(Calendar::BLOCK) ? Calendar::calendarUrl() : null;
 
         $response = wp_remote_get(
             CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/events/upcoming?limit='.$instance['number_of_events']

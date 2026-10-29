@@ -1,7 +1,10 @@
 <div class="church_social_sermon_archive">
 
     <?php if ($this->authors): ?>
-        <form class="church_social_sermon_archive__search_form">
+        <form class="church_social_sermon_archive__search_form" action="<?php echo esc_url(ChurchSocial\SermonArchive::archiveUrl()) ?>">
+            <?php if (!get_option('permalink_structure')): ?>
+                <input type="hidden" name="page_id" value="<?php echo ChurchSocial\Pages::get(ChurchSocial\SermonArchive::BLOCK) ?>">
+            <?php endif ?>
             <input type="hidden" name="sermon_page" value="1">
             <p>
                 <label class="church_social_sermon_archive__search_form_minister_label" for="church_social_sermon_archive__search_form_minister_select">Minister:</label>
@@ -44,7 +47,7 @@
                                 <?php echo ChurchSocial\Util::date($sermon['date'], 'M j, Y') ?>
                             <?php endif ?>
                         </td>
-                        <td class="church_social_sermon_archive__table_title"><a href="?sermon_id=<?php echo $sermon['id'] ?>"><?php echo $sermon['title'] ?></a></td>
+                        <td class="church_social_sermon_archive__table_title"><a href="<?php echo esc_url(ChurchSocial\SermonArchive::sermonUrl($sermon)) ?>"><?php echo $sermon['title'] ?></a></td>
                         <td class="church_social_sermon_archive__table_author">
                             <?php if ($sermon['author'] && !$sermon['read_by_name']): ?>
                                 <?php echo $sermon['author']['name'] ?>
@@ -72,12 +75,12 @@
 
     <p class="church_social_sermon_archive__prev_and_next_page_buttons">
         <?php if ($this->meta['previous_page']): ?>
-            <a class="church_social_sermon_archive__prev_page_button" href="?sermon_page=<?php echo $this->meta['previous_page']?><?php echo isset($_GET['author_id']) ? '&author_id='.$_GET['author_id'] : '' ?>">
+            <a class="church_social_sermon_archive__prev_page_button" href="<?php echo esc_url(ChurchSocial\SermonArchive::archiveUrl(['sermon_page' => $this->meta['previous_page'], 'author_id' => isset($_GET['author_id']) ? $_GET['author_id'] : false])) ?>">
                 Previous page
             </a>
         <?php endif ?>
         <?php if ($this->meta['next_page']): ?>
-            <a class="church_social_sermon_archive__next_page_button" href="?sermon_page=<?php echo $this->meta['next_page']?><?php echo isset($_GET['author_id']) ? '&author_id='.$_GET['author_id'] : '' ?>">
+            <a class="church_social_sermon_archive__next_page_button" href="<?php echo esc_url(ChurchSocial\SermonArchive::archiveUrl(['sermon_page' => $this->meta['next_page'], 'author_id' => isset($_GET['author_id']) ? $_GET['author_id'] : false])) ?>">
                 Next page
             </a>
         <?php endif ?>

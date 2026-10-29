@@ -25,4 +25,13 @@ class Util
             return date_create_immutable($date, static::getTimezone());
         }
     }
+
+    public static function send404()
+    {
+        global $wp_query;
+
+        $wp_query->set_404();
+        status_header(404);
+        nocache_headers();
+    }
 }

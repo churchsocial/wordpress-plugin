@@ -1,9 +1,9 @@
 <div class="church_social_calendar">
     <h2 class="church_social_calendar__title"><?php echo $this->current_month->format('F Y') ?></h2>
     <div class="church_social_calendar__controls">
-        <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->previous_month ?>">Previous Month</a>
-        <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->this_month ?>">Today</a>
-        <a class="church_social_calendar__controls_link" href="?month=<?php echo $this->next_month ?>">Next Month</a>
+        <a class="church_social_calendar__controls_link" href="<?php echo esc_url(ChurchSocial\Calendar::calendarUrl(['month' => $this->previous_month])) ?>">Previous Month</a>
+        <a class="church_social_calendar__controls_link" href="<?php echo esc_url(ChurchSocial\Calendar::calendarUrl(['month' => $this->this_month])) ?>">Today</a>
+        <a class="church_social_calendar__controls_link" href="<?php echo esc_url(ChurchSocial\Calendar::calendarUrl(['month' => $this->next_month])) ?>">Next Month</a>
     </div>
     <table class="church_social_calendar__table">
         <tbody>
@@ -38,7 +38,7 @@
                         foreach ($this->events as $event) {
                             if (ChurchSocial\Util::date($event['date'], 'Y-m-d') === $day->format('Y-m-d')) {
                                 echo '<div class="church_social_calendar__event">';
-                                echo '<a class="church_social_calendar__event_link" href="?event_id='.$event['id'].'&event_date='.ChurchSocial\Util::date($event['date'], 'Y-m-d').'">'.$event['title'].'</a>';
+                                echo '<a class="church_social_calendar__event_link" href="'.esc_url(ChurchSocial\Calendar::eventUrl($event)).'">'.$event['title'].'</a>';
                                 echo '</div>';
                             }
                         }

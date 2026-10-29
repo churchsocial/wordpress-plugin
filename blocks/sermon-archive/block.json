@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "church-social/sermon-archive",
+    "title": "Church Social Sermon Archive",
+    "category": "widgets",
+    "icon": "microphone",
+    "description": "Show your church's sermons from Church Social. Each sermon gets its own page under this one.",
+    "keywords": ["sermons", "sermon archive", "preaching", "church social"],
+    "textdomain": "church-social",
+    "supports": {
+        "html": false,
+        "multiple": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "margin": true
+        }
+    },
+    "editorScript": "file:./index.js"
+}

@@ -7,12 +7,10 @@ use WP_Widget;
 class RecentSermonsWidget extends WP_Widget
 {
     protected $api_key;
-    protected $page_id;
 
     public function __construct()
     {
         $this->api_key = get_option('church_social_api_key');
-        $this->page_id = (int) get_option('church_social_sermon_archive_page_id');
 
         parent::__construct('church_social_recent_sermons', 'Recent Sermons', [
             'description' => 'Show recent sermons from your Church Social sermon archive.',
@@ -54,7 +52,7 @@ class RecentSermonsWidget extends WP_Widget
 
     public function widget($args, $instance)
     {
-        $sermon_archive_page_url = $this->page_id ? get_permalink($this->page_id) : null;
+        $sermon_archive_page_url = Pages::get(SermonArchive::BLOCK) ? SermonArchive::archiveUrl() : null;
 
         $response = wp_remote_get(
             CHURCH_SOCIAL_DOMAIN.'/public/church/'.$this->api_key.'/sermons?limit='.$instance['number_of_sermons']

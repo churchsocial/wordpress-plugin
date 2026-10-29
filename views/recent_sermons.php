@@ -5,7 +5,7 @@
                 <li class="church_social_sermon_archive__widget_item">
                     <div class="church_social_sermon_archive__widget_title">
                         <?php if ($sermon_archive_page_url): ?>
-                            <a class="church_social_sermon_archive__widget_link" href="<?php echo $sermon_archive_page_url ?>?sermon_id=<?php echo $sermon['id'] ?>">
+                            <a class="church_social_sermon_archive__widget_link" href="<?php echo esc_url(ChurchSocial\SermonArchive::sermonUrl($sermon)) ?>">
                                 <?php echo $sermon['title'] ?>
                             </a>
                         <?php else: ?>
