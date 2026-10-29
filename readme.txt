@@ -11,7 +11,7 @@ This plugin allows churches to display content from their Church Social account 
 
 == Description ==
 
-This plugin allows churches to display content from their [Church Social](https://churchsocial.com) account on their WordPress website. For example, it will display public events from the calendar as well as public sermons from the sermon archive. This is a great way to keep this content up-to-date on your church's public-facing website.
+This plugin allows churches to display content from their [Church Social](https://churchsocial.com) account on their WordPress website. For example, it will display public events from the calendar, public sermons from the sermon archive, and the church's livestream. This is a great way to keep this content up-to-date on your church's public-facing website.
 
 Note, you must be a Church Social customer to use this plugin, as it requires an API key. This plugin can be used with both the Church Social provided WordPress themes, as well as any other theme. To become a customer, or to simply learn more about Church Social, please visit our website at [churchsocial.com](https://churchsocial.com).
 
@@ -22,6 +22,7 @@ Note, you must be a Church Social customer to use this plugin, as it requires an
 - In the WordPress admin, go to Settings, then Church Social, and enter your Church Social API key.
 - To enable the calendar or sermon archive, simply select the pages you want them to appear on.
 - You can also optionally set a theme, which is helpful if you're not using one of the Church Social provided WordPress themes.
+- To show your livestream, add the "Church Social Livestream" block to any page. If you use the classic editor, add the `[church_social_livestream]` shortcode instead.
 
 == Frequently Asked Questions ==
 

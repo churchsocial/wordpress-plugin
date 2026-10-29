@@ -18,6 +18,7 @@ include 'libs/Calendar.php';
 include 'libs/UpcomingEventsWidget.php';
 include 'libs/SermonArchive.php';
 include 'libs/RecentSermonsWidget.php';
+include 'libs/Livestream.php';
 
 (new ChurchSocial\Styles(__FILE__));
 (new ChurchSocial\Settings(__FILE__));
@@ -25,3 +26,4 @@ include 'libs/RecentSermonsWidget.php';
 (new ChurchSocial\UpcomingEventsWidget());
 (new ChurchSocial\SermonArchive());
 (new ChurchSocial\RecentSermonsWidget());
+(new ChurchSocial\Livestream());
