@@ -45,6 +45,10 @@ The sermon archive and calendar are now blocks, and require WordPress 6.3 or new
 
 == Changelog ==
 
+= 2.1.0 =
+
+* Show the live or next scheduled stream, with a list of past streams below the player, for YouTube and BoxCast
+
 = 2.0.0 =
 
 * Add Sermon Archive, Calendar and Livestream blocks

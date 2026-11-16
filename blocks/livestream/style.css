@@ -1,0 +1,101 @@
+.church_social_livestream .church_social_livestream__player {
+    position: relative;
+    background: #000;
+}
+
+.church_social_livestream .church_social_livestream__offline {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    color: #fff;
+    text-align: center;
+}
+
+.church_social_livestream .church_social_livestream__offline[hidden] {
+    display: none;
+}
+
+.church_social_livestream .church_social_livestream__videos {
+    margin: 2em 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.church_social_livestream .church_social_livestream__video {
+    margin: 0;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.church_social_livestream .church_social_livestream__video::before {
+    content: none;
+}
+
+/* Themes style buttons heavily, so rows start from nothing. */
+.church_social_livestream .church_social_livestream__video_button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 0.4em;
+    width: 100%;
+    padding: 0.6em 0.75em;
+    cursor: pointer;
+}
+
+.church_social_livestream .church_social_livestream__video_button:hover {
+    background: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+.church_social_livestream .church_social_livestream__video_button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -2px;
+}
+
+.church_social_livestream .church_social_livestream__video_button[aria-current="true"] {
+    background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.church_social_livestream .church_social_livestream__video_button > span {
+    white-space: nowrap;
+}
+
+.church_social_livestream .church_social_livestream__video_part_of_day,
+.church_social_livestream .church_social_livestream__video_title {
+    opacity: 0.65;
+}
+
+.church_social_livestream .church_social_livestream__video_button > .church_social_livestream__video_title {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+.church_social_livestream .church_social_livestream__badge {
+    padding: 0.15em 0.6em;
+    border-radius: 999px;
+    font-size: 0.75em;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.church_social_livestream .church_social_livestream__badge_live {
+    background: #dc2626;
+    color: #fff;
+}
+
+.church_social_livestream .church_social_livestream__badge_offline {
+    background: #8c8780;
+    color: #fff;
+}
+
+.church_social_livestream .church_social_livestream__badge_upcoming {
+    background: #fcd34d;
+    color: #78350f;
+}
